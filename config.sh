@@ -38,9 +38,8 @@ value() {
 }
 
 AOSPDIR=${ANDROID_PATH}/$(value $TARGET[android_path])
-KERNELDIR=${KERNEL_PATH}/$(value $TARGET[kernel_path])
 UBOOTDIR=${UBOOT_PATH}/$(value $TARGET[uboot_path])
-
+export KERNELDIR=${KERNEL_PATH}/$(value $TARGET[kernel_path])
 export PATH=$(value $TARGET[toolchain]):$PATH
 export CROSS_COMPILE=$(value $TARGET[cross_compile])
 export ARCH=$(value $TARGET[arch])
