@@ -1,35 +1,40 @@
- #!/bin/bash 
-export KERNELDIR=~/dev/linux
-#export OUT_DIR_COMMON_BASE=~/repo/android_out
-#export AOSP_ROOT_PATH=~/repo/android
+#!/bin/bash
 
-#export AOSP_ROOT_PATH=~/repo/o-ti-master-beagle
-#export TARGET=beagle_x15
+source ~/scripts/build.conf
 
-export AOSP_ROOT_PATH=~/dev/p-core-dev
-export TARGET=beagle_x15
+#default target
+TARGET=am57xevm
 
-#export AOSP_ROOT_PATH=~/repo/o-mr1-core-dev
-#export TARGET=am57xevm
+#Setup section starts
+#------------------------------------------------------------------
 
-#export AOSP_ROOT_PATH=~/dev/o-mr1-core-dev
-#export TARGET=am57xevm
-#export TARGET=beagle_x15
+#Android setup
+REPO_PATH=/mnt/hdd/repo
+ANDROIDDIR=${REPO_PATH}/android
+AOSP_ROOT_PATH=${ANDROIDDIR}/o-mr1-core-dev
 
-#export AOSP_ROOT_PATH=~/repo/o-ti-master
-#export TARGET=am57xevm
+#Directory for images
+FLASHING_BINARIES=${REPO_PATH}/flashing_binaries
+
+#kernel and u-boot setup
+KERNELDIR=${REPO_PATH}/kernel/kernel_32
+UBOOTDIR=${REPO_PATH}/u-boot/u-boot_${TARGET}
 
 export PATH=/opt/gcc-linaro-7.2.1-2017.11-x86_64_arm-eabi/bin:$PATH
 export CROSS_COMPILE=arm-eabi-
 export ARCH=arm
-export FLASHING_BINARIES=~/dev/flashing_binaries
-export PATHCES_DIR=~/patches
-export USE_CCACHE=1
 
+#------------------------------------------------------------------
+#Setup section ends
 
 red=`tput setaf 1`
 green=`tput setaf 2`
+yellow=`tput setaf 3`
 reset=`tput sgr0`
+
+function prnt_yellow () {
+echo "${yellow}${1}${reset}"
+}
 
 function prnt_red () {
 echo "${red}${1}${reset}"
@@ -44,4 +49,14 @@ prnt_red "$1"
 exit 1
 }
 
+if [ -z $1 ]
+    then
+        prnt_yellow "Target was not set. Using default target=${TARGET}"
+	prnt_help
+fi
+
+
+
+#export AOSP_ROOT_PATH=${ANDROIDDIR}/o-ti-master-beagle
+#export TARGET=beagle_x15
 
