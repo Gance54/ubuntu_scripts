@@ -10,3 +10,4 @@ cp $local_out/target/product/$(value $TARGET[target])/boot_fit.img $FLASHING_BIN
 cp $local_out/target/product/$(value $TARGET[target])/system.img $FLASHING_BINARIES
 cp $local_out/target/product/$(value $TARGET[target])/userdata.img $FLASHING_BINARIES
 cp $local_out/target/product/$(value $TARGET[target])/vendor.img $FLASHING_BINARIES
+#cp $local_out/target/product/$(value $TARGET[target])/cache.img $FLASHING_BINARIES

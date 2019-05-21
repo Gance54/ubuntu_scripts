@@ -39,7 +39,14 @@ value() {
 
 AOSPDIR=${ANDROID_PATH}/$(value $TARGET[android_path])
 UBOOTDIR=${UBOOT_PATH}/$(value $TARGET[uboot_path])
+OPTEEDIR=${OPTEE_PATH}/$(value $TARGET[optee_path])
+ATFDIR=${ATF_PATH}/$(value $TARGET[atf_path])
+SYSFWDIR=${SYSFW_PATH}/$(value $TARGET[sysfw_path])
+
 export KERNELDIR=${KERNEL_PATH}/$(value $TARGET[kernel_path])
 export PATH=$(value $TARGET[toolchain]):$PATH
+export PATH=$(value $TARGET[toolchain_optee]):$PATH
 export CROSS_COMPILE=$(value $TARGET[cross_compile])
+export CROSS_COMPILE64=$(value $TARGET[cross_compile64])
+export CROSS_COMPILE32=$(value $TARGET[cross_compile32])
 export ARCH=$(value $TARGET[arch])
