@@ -1,6 +1,6 @@
 #!/bin/bash
 
-source ~/scripts/config.sh $*
+source /mnt/ssd/repo/scripts/config.sh $*
 
 ZIMAGE=$KERNELDIR/arch/arm/boot/zImage
 DTB=$KERNELDIR/arch/arm/boot/dts/ti/am57xx-beagle-x15-revc.dtb am57xx-evm-common.dtbo am57xx-evm-reva3.dtbo
@@ -23,6 +23,8 @@ fi
 cd $AOSPDIR
 
 source build/envsetup.sh && lunch $(value $TARGET[lunch]) || error "Something went wrong. check AOSPDIR"
-make -j4 || error "Android build failed"
+make -j4 TARGET_AM57XEVM_HS_BOARD=true  || error "Android build failed"
+#TARGET_AM57XEVM_HS_BOARD=true
+#USE_TI_HWC=y
 #make bootfitimage || error "Boot_fit build failed"
 prnt_green "Congratulations! Your Androud build was successful for target $(value $TARGET[target]) in $AOSPDIR!"

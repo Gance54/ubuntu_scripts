@@ -1,6 +1,6 @@
 #!/bin/bash
 
-source ~/scripts/config.sh $*
+source /mnt/ssd/repo/scripts/config.sh $*
 export ARCH=arm
 export ATF=$ATFDIR/build/k3/generic/release/bl31.bin
 export TEE=$OPTEEDIR/out/arm-plat-k3/core/tee-pager.bin

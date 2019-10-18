@@ -1,6 +1,6 @@
 #!/bin/bash
 
-source ~/scripts/config.sh $*
+source /mnt/ssd/repo/scripts/config.sh $*
 
 cd $KERNELDIR 
 ./ti_config_fragments/defconfig_builder.sh -t $(value $TARGET[kernelconf])

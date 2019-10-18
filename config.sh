@@ -1,7 +1,7 @@
 #!/bin/bash
 
-source ~/scripts/build.conf
-source ~/scripts/prnt.sh
+source /mnt/ssd/repo/scripts/build.conf
+source /mnt/ssd/repo/scripts/prnt.sh
 
 function check_target () {
 if [[ " ${TARGET_LIST[@]} " =~ " $1 " ]]; then
@@ -50,3 +50,4 @@ export CROSS_COMPILE=$(value $TARGET[cross_compile])
 export CROSS_COMPILE64=$(value $TARGET[cross_compile64])
 export CROSS_COMPILE32=$(value $TARGET[cross_compile32])
 export ARCH=$(value $TARGET[arch])
+export TI_SECURE_DEV_PKG=${REPO_PATH}/sec_package/secdev-dra7xx_lite_4.6.0

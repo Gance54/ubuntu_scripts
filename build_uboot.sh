@@ -1,6 +1,6 @@
 #!/bin/bash
 
-source ~/scripts/config.sh $*
+source /mnt/ssd/repo/scripts/config.sh $*
 cd $UBOOTDIR
 make $(value $TARGET[ubootconfig])
 make -j4 || error "Build failed"

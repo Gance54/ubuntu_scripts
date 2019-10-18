@@ -1,2 +1,2 @@
 #!/bin/bash
-~/scripts/copy.sh $* && ~/scripts/upload.sh $*
+/mnt/ssd/repo/scripts/copy.sh $* && /mnt/ssd/repo/scripts/upload.sh $*
