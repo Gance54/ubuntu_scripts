@@ -1,6 +1,7 @@
 #!/bin/bash
+
 source /mnt/ssd/repo/scripts/prnt.sh
-source boards.conf
+source /mnt/ssd/repo/scripts/boards/boards.conf
 
 function check_board () {
 	if [[ "${BOARD_LIST[@]}" =~ "$1" ]]; then
